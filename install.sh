@@ -33,7 +33,7 @@ archive="wtp-$target.tar.gz"
 tmp="$(mktemp -d)"
 trap 'rm -rf "$tmp"' EXIT
 
-echo "Downloading $archive…"
+echo "Downloading ${archive}..."
 curl -fsSL "$base/$archive" -o "$tmp/$archive" || fail "couldn't download $base/$archive"
 curl -fsSL "$base/$archive.sha256" -o "$tmp/$archive.sha256" || fail "couldn't download the checksum"
 (cd "$tmp" && shasum -a 256 -c "$archive.sha256" >/dev/null) || fail "checksum mismatch; not installing."
