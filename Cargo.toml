@@ -1,0 +1,19 @@
+[package]
+name = "wtp"
+version = "0.1.0"
+description = "Every dev server on your Mac, in the terminal. Stop the ones you forgot."
+license = "MIT"
+repository = "https://github.com/thetylerreiff/wtp"
+rust-version = "1.88"
+edition = "2024"
+
+[dependencies]
+libc = "0.2.189"
+ratatui = "0.30.2"
+serde_json = "1.0.151"
+unicode-width = "0.2.2"
+
+[profile.release]
+lto = true
+codegen-units = 1
+strip = true
